@@ -7,5 +7,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>serviceA</module>
+        <module>serviceB</module>
     </modules>
 </project>

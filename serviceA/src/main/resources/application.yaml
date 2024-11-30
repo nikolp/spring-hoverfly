@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: serviceA
+server:
+  port: 8081
+serviceB:
+  base_url: http://localhost:8082
+
