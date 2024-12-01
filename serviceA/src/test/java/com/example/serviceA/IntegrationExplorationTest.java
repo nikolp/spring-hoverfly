@@ -12,13 +12,14 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+// Exploring stuff ... not a full integration test
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Slf4j
 // Usually we like to inject things using constructor
 // However @LocalServerPort is a bit funky and is handled differently by the framework
 // So do everything by field injection.
-// Do not mark fields as final, do @Autoowire them, do not include @AllArgsConstructor
-public class IntegrationTest {
+// Do not mark fields as final, do @Autowire them, do not include @AllArgsConstructor
+public class IntegrationExplorationTest {
     @LocalServerPort
     private int serviceAPort;
 
@@ -47,6 +48,8 @@ public class IntegrationTest {
     void testBasic() {
         log.info("Access app at: " + "http://localhost:" + serviceAPort);
         ResponseEntity<HelloDto> responseEntity = testRestTemplate.getForEntity("/", HelloDto.class);
+        // The call fails because we don't have serviceB up yet
+        // But the test passes because we don't have any assertions
         //Thread.sleep(60000);
     }
 
