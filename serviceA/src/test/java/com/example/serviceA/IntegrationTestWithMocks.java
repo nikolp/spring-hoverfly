@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,7 +26,7 @@ public class IntegrationTestWithMocks {
     void testBasic() {
         when(serviceBClient.getName()).thenReturn("My Friend");
         ResponseEntity<HelloDto> responseEntity = testRestTemplate.getForEntity("/", HelloDto.class);
-        assertTrue(responseEntity.getStatusCode().is2xxSuccessful());
+        assertEquals(HttpStatusCode.valueOf(202), responseEntity.getStatusCode());
         assertEquals("Hello My Friend", responseEntity.getBody().getMessage());
     }
 }
