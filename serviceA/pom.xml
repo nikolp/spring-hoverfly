@@ -13,28 +13,21 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>serviceA</name>
 	<description>Service A</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<hoverfly-java.version>0.19.1</hoverfly-java.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>io.specto</groupId>
+			<artifactId>hoverfly-java</artifactId>
+			<version>${hoverfly-java.version}</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
