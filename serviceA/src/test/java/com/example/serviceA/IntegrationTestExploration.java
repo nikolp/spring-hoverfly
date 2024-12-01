@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 // However @LocalServerPort is a bit funky and is handled differently by the framework
 // So do everything by field injection.
 // Do not mark fields as final, do @Autowire them, do not include @AllArgsConstructor
-public class IntegrationExplorationTest {
+public class IntegrationTestExploration {
     @LocalServerPort
     private int serviceAPort;
 
