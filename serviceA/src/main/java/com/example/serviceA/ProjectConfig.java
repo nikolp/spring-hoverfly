@@ -8,10 +8,11 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class ProjectConfig {
+
     @Bean
-    public RestTemplate restTemplate(@Value("${serviceB.base_url}") String apiUrl) {
-        return new RestTemplateBuilder()
-                .rootUri(apiUrl)
-                .build();
+    public RestTemplate restTemplate(@Value("${serviceB.base_url}") String apiUrl,
+                                     RestTemplateBuilder builder) {
+        RestTemplate result = builder.rootUri(apiUrl).build();
+        return result;
     }
 }
